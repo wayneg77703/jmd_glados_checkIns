@@ -5,14 +5,18 @@ from push_message import *
 
 if __name__ == "__main__":
 
-    cookie_string = sys.argv[1]
     # pushplus平台token
     pushplus_token = os.environ['PUSHPLUS_TOKEN']
     # server酱token
     server_token = os.environ['SERVER_TOKEN']
 
-    assert cookie_string
-    cookie_string = cookie_string.split("&&")
+    glados_cookie = os.environ['GLADOS_COOKIE']
+
+    if glados_cookie is None or len(glados_cookie) <= 0 or glados_cookie == '':
+        print('The glados_cookie is none')
+        exit(0)
+
+    cookie_string = glados_cookie.split("&&")
     checkin_codes = list()
 
     account_checkin_message = []
@@ -40,8 +44,8 @@ if __name__ == "__main__":
                 server_messgae(token=server_token, title='Glados checkIn status', message=''.join(checkin_message))
             else:
                 print('The server_token is none')
-        except Exception:
-            print('push message error')
+        except Exception as e:
+            print('push message error', str(e))
 
     assert -2 not in checkin_codes, "At least one account login fails."
     assert checkin_codes.count(0) + checkin_codes.count(1) == len(checkin_codes), "Not all the accounts check in successfully."
