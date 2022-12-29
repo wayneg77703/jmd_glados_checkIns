@@ -1,2 +1,2 @@
 undetected-chromedriver==3.1.7
-requests
+requests==2.28.1
