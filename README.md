@@ -2,7 +2,7 @@
 
 ## GLaDOS automatic check-in bypassing CloudFlare using github action
 
-## 介绍一下我个人新的签到项目，各大网站全自动签到，目前支持GLADOS,bilibili直播,天翼云盘，后续会支持更多新网站，也可以在issues中提出你的需求，欢迎fork项目使用，如果觉得有用，请点击star，地址：https://github.com/yaoysyao/Auto_CheckIn.git
+## 我个人新的签到项目，各大网站全自动签到，目前支持GLADOS,bilibili直播,天翼云盘，后续会支持更多新网站，也可以在issues中提出你的需求，欢迎fork项目使用，如果觉得有用，请点击star，地址：https://github.com/yaoysyao/Auto_CheckIn.git
 
 ### 由于GLaDOS修改了相关规则，免费用户已经无法通过签到获取天数，好像免费用户可以免费签到七天，然后就不能签到了，会提示 Can not checkin without a valid Membership, Please upgrade to Basic/Pro plan，这不是脚本错误，请开通会员在进行签到
 
@@ -24,17 +24,10 @@
 
 #### 强烈建议使用pushplus平台，因为server酱每日推送消息有数量限制
 
-## 更新日志
-
-### 2022-7-4：
-
-### 1. 新增推送至server酱，并对代码进行整理
-
-### 2. 更新README.md
-
-### 3. 修改为每日0时05分执行签到
-
 ## 重要！重要！
+
+### 目前设置的是每天早上8:05进行签到，也可以自己修改时间，规则如下，UTC和北京时间对比可以网上查询
+
 ### cron定时器设置规则
 
              ┌──分钟（0 - 59）
@@ -43,6 +36,7 @@
              │ │ │ ┌─月（1 - 12）
              │ │ │ │ ┌─星期（0 - 6，表示从周日到周六）
     - cron: '1 1 1 1 1'
+
 在fork本项目并配置完成后，请启动工作流并检查是否已经执行签到
 
 启动工作流
